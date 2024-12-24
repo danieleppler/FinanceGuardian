@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { mock_users } from '../mock_data'
-import { check_password_validity, CreateUID } from '../utils'
+
+import { check_password_validity } from '../utils'
 import axios from 'axios'
 
 const Register = () => {
@@ -14,24 +14,13 @@ const Register = () => {
         e.preventDefault()
 
         const form_data = new FormData(e.target)
-
-        const user_name = form_data.get('username')
-        if (users.find((x) => x.user_name === user_name)) {
-            set_form_errors({ password: '', username: 'username used' })
-            return
-        }
-
-
         const password = form_data.get('password')
         const c_password = form_data.get('confirm_password')
-
-
 
         if (!check_password_validity(password)) {
             set_form_errors({ password: 'password not valid', username: '', general: '' })
             return
         }
-
 
         if (c_password !== password) {
             set_form_errors({
@@ -40,16 +29,18 @@ const Register = () => {
             return
         }
 
+        const first_name = form_data.get('first_name')
+        const last_name = form_data.get('last_name')
+        const age = form_data.get('age')
+        const username = form_data.get('username')
 
 
-        const first_name = form_data.get(first_name)
-        const last_name = form_data.get(last_name)
-        const age = form_data.get(age)
-
-        const response = await axios.post(`${server_url}/users/register`, { first_name, last_name, age, user_name, password })
+        const response = await axios.post(`${server_url}/users/register`, { first_name, last_name, age, username, password })
 
         if (response.status === 200)
             console.log('registred successfully')
+        else if (response.status === 409)
+            set_form_errors({ password: '', user_name: 'username already taken', general: '' })
 
         else set_form_errors({ password: '', user_name: '', general: 'Something wont wrong, plaese try again later' })
 

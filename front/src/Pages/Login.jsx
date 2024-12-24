@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { mock_users } from '../mock_data'
-import { axios } from 'axios'
+import axios from 'axios'
 
 const Login = () => {
 

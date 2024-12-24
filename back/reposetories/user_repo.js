@@ -1,12 +1,15 @@
 const db_client  = require('../db_client')
 const utils = require('../utils')
-const {INSERT_USER_QUERY,SELECT_USER_BY_USERNAME} = require('../Queries')
+const {INSERT_USER_QUERY,SELECT_USER_BY_USERNAME,SELECT_ALL_USERS_QUERY} = require('../Queries')
 
 
 const create_user = async (user) =>{
+    const {first_name,last_name,age,username,password} = user
+
     const uid = utils.CreateUID()
-    const {first_name,last_name,age,user_name,password} = user
-    await db_client.query(INSERT_USER_QUERY,[uid,first_name,last_name,age,user_name,password])
+    const hashed_password = await utils.hash_password(password)
+
+    await db_client.query(INSERT_USER_QUERY,[uid,first_name,last_name,age,username,hashed_password])
     return
 }
 
@@ -15,8 +18,9 @@ const get_user_by_username = async (user_name) =>{
     return user
 }
 
-const get_all_users = () =>{
-    
+const get_all_users = async () =>{
+    const users = await db_client.query(SELECT_ALL_USERS_QUERY)
+    return users
 
 }
 

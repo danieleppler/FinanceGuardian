@@ -5,7 +5,9 @@ const user_service = require('../services/user_service')
 
 router.post('/register',async (req,res)=>{
     try{
-        await user_service.register_user(req.body)
+        const result = await user_service.register_user(req.body)
+        if(result === 409)
+            return res.status(409).send()
         return res.status(201).send()
     }
     catch(e){

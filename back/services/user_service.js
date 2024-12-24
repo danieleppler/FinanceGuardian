@@ -5,9 +5,14 @@ const mock_users = [{user_name : 'AVI1',password:'123'}]
 const user_repo = require('../reposetories/user_repo')
 
 const register_user = async (new_user) =>{
+    const users = await user_repo.get_all_users()
+
+    if (users.find((x) => x.user_name === new_user.username)) {
+        return 409
+    }
 
     user_repo.create_user(new_user)
-    return 
+    return 200
 }
 
 const validate_login = async (user_from_client) =>{
