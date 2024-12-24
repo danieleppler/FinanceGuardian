@@ -1,0 +1,13 @@
+.form_error{
+  color: red;
+}
+
+a{
+  cursor: pointer;
+  color: rgb(7, 201, 201);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
