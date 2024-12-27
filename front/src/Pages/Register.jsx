@@ -35,7 +35,7 @@ const Register = () => {
         const username = form_data.get('username')
 
 
-        const response = await axios.post(`${server_url}/users/register`, { first_name, last_name, age, username, password })
+        const response = await axios.post(`${server_url}/auth/register`, { first_name, last_name, age, username, password })
 
         if (response.status === 200)
             console.log('registred successfully')

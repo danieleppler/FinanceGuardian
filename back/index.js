@@ -1,14 +1,17 @@
 const express = require('express')
+const cors = require('cors')
 
 require('dotenv').config({path: __dirname + '/.env'})
 require('./db_client')
 
 const app = express()
 const port = process.env.SERVER_PORT
-app.use(express.json())
 
-const user_controller = require('./controllers/user_controller')
-app.use('/users',user_controller) 
+app.use(express.json())
+app.use(cors())
+
+const auth_controller = require('./controllers/auth_controller')
+app.use('/auth',auth_controller) 
 
 try{
     app.listen(port,() =>{

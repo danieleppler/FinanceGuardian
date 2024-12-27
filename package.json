@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd back && nodemon --quiet server",
-    "client": "cd front && npm run dev "
+    "server": "cd back && nodemon index.js",
+    "client": "cd front && npm run dev ",
+    "git" : "git add --all && git commit -m \"added auth context \" && git push origin master"
   },
   "keywords": [],
   "author": "",

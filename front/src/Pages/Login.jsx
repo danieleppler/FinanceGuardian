@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { mock_users } from '../mock_data'
 import axios from 'axios'
+import { useNavigate } from 'react-router'
+import { useAuth } from '../Contexts/AuthContext'
 
 const Login = () => {
 
     const server_url = process.env.VITE_SERVER_URL
 
     const [form_errors, set_form_errors] = useState({ username: '', password: '' })
+    const navigate = useNavigate()
+    const { set_user } = useAuth()
 
     const handle_submit = async (e) => {
 
@@ -19,20 +23,27 @@ const Login = () => {
 
         if (!f_username) {
             set_form_errors({ password: '', username: `please fill username field` })
+            return
         }
 
-        if (!f_password)
+        if (!f_password) {
             set_form_errors({ password: 'please fill password field', username: `` })
+            return
+        }
 
-        const response = await axios.post(`${server_url}/users/login`, { f_username, f_password })
+        const response = await axios.post(`${server_url}/auth/login`, { f_username, f_password }).catch((rej) => {
+            if (rej.status === 401)
+                if (rej.response.data.err_type === 'password')
+                    set_form_errors({ password: rej.response.data.err, username: `` })
+                else set_form_errors({ password: '', username: rej.response.data.err })
+        })
 
-        if (response.status === 200)
-            console.log('login succeed')
 
-        if (response.status === 401)
-            if (response.data.err_type === 'password')
-                set_form_errors({ password: response.data.err_msg, username: `` })
-            else set_form_errors({ password: '', username: response.data.err_msg })
+        set_user({ token: response.data.entry_token, username: f_username })
+        navigate('/dashboard')
+
+
+
     }
 
     return (
