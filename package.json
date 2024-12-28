@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd back && nodemon index.js",
     "client": "cd front && npm run dev ",
-    "git" : "git add --all && git commit -m \"added auth context \" && git push origin master"
+    "git" : "git add --all && git commit -m read -p \"Enter commit message\" && git push origin master"
   },
   "keywords": [],
   "author": "",
