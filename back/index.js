@@ -13,6 +13,9 @@ app.use(cors())
 const auth_controller = require('./controllers/auth_controller')
 app.use('/auth',auth_controller) 
 
+const expense_controller = require('./controllers/expense_controller')
+app.use('/expenses',expense_controller)
+
 try{
     app.listen(port,() =>{
         console.log(`app listening on port ${port}`)

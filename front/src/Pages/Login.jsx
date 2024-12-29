@@ -39,7 +39,7 @@ const Login = () => {
         })
 
 
-        set_user({ token: response.data.entry_token, username: f_username })
+        set_user({ token: response.data.entry_token, username: f_username, id: response.data.id })
         navigate('/dashboard')
 
 

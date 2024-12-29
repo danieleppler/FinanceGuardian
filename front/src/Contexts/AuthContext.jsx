@@ -10,7 +10,8 @@ const AuthProvider = ({ children }) => {
         const username = localStorage.getItem('username')
         if (username) {
             const token = localStorage.getItem('token')
-            set_user({ username, token })
+            const id = localStorage.getItem('id')
+            set_user({ username, token, id })
         }
 
     }, [])
@@ -19,9 +20,10 @@ const AuthProvider = ({ children }) => {
         if (user) {
             const temp = localStorage.getItem('username')
             if (!temp) {
-                const { username, token } = user
+                const { username, token, id } = user
                 localStorage.setItem('username', username)
                 localStorage.setItem('token', token)
+                localStorage.setItem('id', id)
             }
         }
 

@@ -30,7 +30,7 @@ try{
 
     if(result.status === 200){
         const entry_token = await utils.assign_entry_token(req.body)
-        return res.status(200).send({entry_token})
+        return res.status(200).send({entry_token,id: result.id})
     }       
 }
 catch(e){

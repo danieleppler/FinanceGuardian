@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd back && nodemon index.js",
+    "server": "cd back && npm run dev",
     "client": "cd front && npm run dev ",
-    "git" : "git add --all && git commit -m read -p \"Enter commit message\" && git push origin master"
+    "git" : "git add --all && git commit -m read -p \"added add expense functionality\" && git push origin master"
   },
   "keywords": [],
   "author": "",

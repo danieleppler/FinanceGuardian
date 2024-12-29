@@ -1,0 +1,79 @@
+FinanceGuardian
+
+Front : React 
+
+Login\Register mechanisem using DB
+
+Pages :
+*default page is month stats*
+options presented on navbar:
+Add expense 
+See Month stats
+Manage Fixed Expenses
+Private area
+Contact us
+Log out
+
+ChatBot in the bottom right of the page
+
+
+Add Expense:
+form with option to add expense - type(option to naviage to add type screen),title,date,amount,option to mark this expense as fixed
+
+Add type :
+
+popup with list of all the current types available to the user . the user can delete types that he added but it will delete the corresponding expense also.
+the user can add type and chose the type icon and title
+
+Month stats:
+
+List of expenses 
+the user can filter the list by :
+expenses by catagories : 
+grouped by catagories , total for each catagory, total for all catagories
+
+expenses by date :
+total for all 
+
+Pie charts - 
+expenses by catagories - using chartjs library
+
+Upcoming expenses :
+the user will see upcoming fixed expenses and a progress bar how much is left to expense
+
+Manage fixed expenses :
+list of all current fixed expenses , option to create , update and delete
+
+Private area : 
+form of the user personal info ,option to update
+
+Contact us : 
+send a email to the app staff - using emailjs-com library (200 free emails per month)
+
+
+DB : PostgreSQL
+
+Entities :
+
+Users:
+id : long
+fname : string
+lname : string
+user_name : string
+password : string
+type : string
+age:number
+
+Expenses :
+id : long
+type_id : long
+title : string
+date : date
+amount : double
+fixed : boolean
+user_id : long
+ 
+Expense Types : 
+id: long
+title : string
+logo : string

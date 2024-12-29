@@ -1,12 +1,13 @@
 import React from 'react'
 import { useAuth } from '../../Contexts/AuthContext'
+import OverView from './OverView'
 
 const DashBoard = () => {
     const { user } = useAuth()
 
     return (
         <div>
-            Hello {user?.username}
+            <OverView />
         </div>
     )
 }
