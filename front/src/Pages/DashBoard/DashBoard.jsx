@@ -6,9 +6,9 @@ const DashBoard = () => {
     const { user } = useAuth()
 
     return (
-        <div>
+        <>
             <OverView />
-        </div>
+        </>
     )
 }
 

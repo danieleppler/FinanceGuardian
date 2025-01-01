@@ -5,4 +5,8 @@ const save_new_expense = async (expense) =>{
     return
 }
 
-module.exports = {save_new_expense}
+const get_expenses_by_user = async (id) =>{
+    return await expense_repo.read_by_user_id(id)
+}
+
+module.exports = {save_new_expense,get_expenses_by_user}

@@ -30,8 +30,8 @@ form{
 
 .add-expense-button{
   position: fixed;
-  left: 30%;
-  bottom: 30%;
+  left: 3%;
+  bottom: 5%;
 }
 
 .add_expense_popup_container{
@@ -48,6 +48,12 @@ form{
   height: fit-content;
 }
 
+.flex-container-col{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .flexbox-container-row{
   display: flex;
   flex-direction: row;
@@ -62,8 +68,91 @@ form{
 
 } 
 
-.e_amount_input::after{
+.e_amount::after{
   content:"₪";
   font-weight: 1000;
-  color: black;
+  color: white;
+}
+
+
+.expense_row{
+  border: 4px solid black;
+  margin-top: 1%;
+  padding: 1%;
+  width: 30vw;
+  font-weight: 500;
+  background-color: #5393fa;
+  opacity: 90%;
+  
+}
+
+.expense_list{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.e_row_text{
+ color: white; 
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+ font-family: "Exo 2", serif;
+}
+
+.e_row_date{
+  font-size: small;
+}
+
+.e_row_amount{
+  font-size: larger;
+}
+
+.three-dots{
+  position: relative;
+}
+
+.three-dots:after{
+  content: '\2807';
+  margin-left: 1vw;  
+}
+
+.three-dots:hover{
+  background: rgba(128, 128, 128, 0.5);
+  cursor: pointer;
+}
+
+.subtotal_amount{
+  position: absolute;
+  bottom: 0;
+  left:50%;
+  bottom: 10%;
+  transform: translate(-50%);
+}
+
+body{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+  url('./assets/bg-photo.png');
+}
+
+.row_menu{
+  position: absolute;
+  border: 2px solid black;
+  background: beige;
+  left: 2.2vw;
+  top: 0;
+  width: 3Vw;
+  height: 10vh;
+  justify-items: center;
+  font-size: small;
+  align-content: center;
+}
+
+.expense_row_action_item:hover{
+  font-weight: 600;
+}
+
+.bottom_dash{
+  border-bottom: 2px solid black;
+  margin-bottom: 5%;
 }

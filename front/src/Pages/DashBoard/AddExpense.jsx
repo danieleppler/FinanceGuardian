@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../Contexts/AuthContext'
 
-const AddExpense = ({ set_add_expense_popup_visibilty }) => {
+const AddExpense = ({ update_expenses, set_update_expenses, set_add_expense_popup_visibilty }) => {
 
     const { user } = useAuth()
 
@@ -14,7 +14,6 @@ const AddExpense = ({ set_add_expense_popup_visibilty }) => {
     { name: 'help_outline', label: 'other' }
     ]
 
-    const [e_type_checked, set_e_type_checked] = useState()
 
 
     const handle_submit = async (e) => {
@@ -26,11 +25,13 @@ const AddExpense = ({ set_add_expense_popup_visibilty }) => {
             , title: f_data.get('e_title'),
             date: f_data.get('e_date'),
             amount: f_data.get('e_amount'),
-            fixed: f_data.get('e_reoccurance_flag'),
+            fixed: f_data.get('e_reoccurance_flag') ? true : false,
             user_id: user.id
         })
-        if (response.status === 201)
+        if (response.status === 201) {
+            set_update_expenses(!update_expenses)
             set_add_expense_popup_visibilty(false)
+        }
         else
             alert('something went wrong, plase try again later')
     }
@@ -51,7 +52,7 @@ const AddExpense = ({ set_add_expense_popup_visibilty }) => {
                 <br></br>
                 Expense title : <input required type='text' name='e_title'></input>
                 Expense date : <input required type='date' name='e_date'></input>
-                <span className='e_amount_input'>Expense amount :<br /> <input min='0' required type='number' name='e_amount' /></span>
+                <span className='e_amount'>Expense amount :<br /> <input min='0' required type='number' name='e_amount' /></span>
                 <div>
                     check if this is a re-occurring expense <input name='e_reoccurance_flag' type='checkbox'></input>
                     <span title='re-occuring expenses is later on will be calculted in the total expense forecast each month' className='material-icons'>{'help_outline'}</span>

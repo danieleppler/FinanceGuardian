@@ -27,9 +27,9 @@ const RouteGuard = () => {
         //check if user is authenticated . option is to get token + user from redux store, or by context
         //if there is a couple of states we need to push down the components, its better to use redux 
 
-        <div>
+        <>
             {<Outlet />}
-        </div>
+        </>
     )
 }
 
