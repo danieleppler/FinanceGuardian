@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router'
 import DashBoard from '../Pages/DashBoard/DashBoard'
 import Login from '../Pages/Login'
 import Register from '../Pages/Register'
+import { GeneralFallBack } from '../Fallbacks/GeneralFallBack'
 
 
 const App_Routes = () => {
@@ -15,6 +16,7 @@ const App_Routes = () => {
                 <Route element={<RouteGuard />}>
                     <Route path='/dashboard' element={<DashBoard />} />
                 </Route>
+                <Route path='/error' element={<GeneralFallBack />}/>
             </Routes >
         </>
     )

@@ -26,4 +26,26 @@ router.get('/:userid',async (req,res) =>{
     }
 })
 
+router.delete('/:id',async (req,res) =>{
+    try{
+        await expense_service.delete_expense(req.params.id)
+        res.status(200).send({message : `expense ${req.params.id} deleted successfully`})
+    }
+    catch(e){
+        console.log(e.message)
+        res.status(500).send()
+    }
+})
+
+router.put('/:id',async (req,res) =>{
+    try{
+        await expense_service.update_expense(req.body)
+        res.status(200).send({message : `expense ${req.params.id} updated successfully`})
+    }
+    catch(e){
+        console.log(e.message)
+        res.status(500).send()
+    }
+})
+
 module.exports = router

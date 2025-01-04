@@ -8,15 +8,15 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd back && npm run dev",
     "client": "cd front && npm run dev ",
-    "git" : "git add --all && git commit -m read -p \"added add expense functionality\" && git push origin master"
+    "git": "git add --all && git commit -m read -p \"Test version of add expense is ready\" && git push origin master"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.2"
   },
   "dependencies": {
-    
+    "react-date-range": "^2.0.1"
   }
 }

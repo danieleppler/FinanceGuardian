@@ -1,22 +1,23 @@
-.form_error{
+.form_error {
   color: red;
 }
 
-a{
+a {
   cursor: pointer;
   color: rgb(7, 201, 201);
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
 }
 
-.general-btn{
+.general-btn {
   border: 4px solid black;
   padding: 0.5%;
-  background-color: rgb(114, 233, 154);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(46, 78, 223);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: white;
   font-weight: 700;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -24,135 +25,279 @@ form{
   cursor: pointer;
 }
 
-.general-btn:hover{
+.general-btn:hover {
   transform: scale(1.1);
 }
 
-.add-expense-button{
+.add-expense-button {
   position: fixed;
   left: 3%;
   bottom: 5%;
 }
 
-.add_expense_popup_container{
+.add_expense_popup_container {
+  z-index: 2;
   position: fixed;
-  width: 20%;
-  height: 20%;
-  padding: 10%;
   left: 50%;
-  top:50%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  z-index: 1;
-  background-color: rgb(36, 156, 34);
-  height: fit-content;
+  border: 8px solid black;
+  background-color: rgb(8, 15, 46);
+  animation: popUp 1s ease-out forwards;
+  color: rgb(196, 132, 36);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.flex-container-col{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+.add_expense_popup_container form {
+  height: 50vh;
+  width: 50vw;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 0.9fr 0.1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "a a"
+    "b c"
+    "d d";
+  column-gap: 4%;
+  justify-items: center;
 }
 
-.flexbox-container-row{
+.add_expense_popup_container .general-btn {
+  width: 10vw;
+}
+
+.expense_types_list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: 1%;
+  position: relative;
 }
 
-.expense_type_icon_bg{
-  background: wheat;
-  border: 3px solid black;
-  padding: 1%;
-
-} 
-
-.e_amount::after{
-  content:"₪";
-  font-weight: 1000;
-  color: white;
+.add_expense_input_grp_a {
+  grid-area: "a";
+  position: relative;
+  left: 50%;
+  top: 20%;
 }
 
+.add_expense_input_grp_b {
+  grid-area: b;
+}
 
-.expense_row{
+.add_expense_input_grp_c {
+  grid-area: c;
+}
+
+.add_expense_input_grp_d {
+  grid-area: d;
+  position: relative;
+  bottom: 100%;
+}
+
+.filter-expense-date-picker {
+  position: relative;
+  left: 50%;
+  z-index: 1;
+}
+
+.flex-container-col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.flex-container-row {
+  column-gap: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.expense_row {
   border: 4px solid black;
   margin-top: 1%;
   padding: 1%;
-  width: 30vw;
+  width: 25vw;
   font-weight: 500;
   background-color: #5393fa;
   opacity: 90%;
-  
+  position: relative;
 }
 
-.expense_list{
+.expense_list {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  height: fit-content;
+  border: 5px solid black;
+  height: 60%;
+  width: 35vw;
+  overflow: scroll;
+  align-items: center;
+  background: rgb(32, 28, 28);
 }
 
-.e_row_text{
- color: white; 
- text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
- font-family: "Exo 2", serif;
+.expense_type_icon_bg {
+  background: wheat;
+  border: 3px solid black;
 }
 
-.e_row_date{
+.e_amount::after {
+  content: "₪";
+  font-weight: 500;
+  font-size: large;
+  color: white;
+  margin-left: 2px;
+}
+
+.e_row_text {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: "Exo 2", serif;
+}
+
+.e_row_date {
   font-size: small;
 }
 
-.e_row_amount{
+.e_row_amount {
   font-size: larger;
 }
 
-.three-dots{
+.three-dots {
   position: relative;
 }
 
-.three-dots:after{
-  content: '\2807';
-  margin-left: 1vw;  
+.three-dots:after {
+  content: "\2807";
+  margin-left: 1vw;
 }
 
-.three-dots:hover{
+.three-dots:hover {
   background: rgba(128, 128, 128, 0.5);
   cursor: pointer;
 }
 
-.subtotal_amount{
+.subtotal_amount {
   position: absolute;
   bottom: 0;
-  left:50%;
+  left: 50%;
   bottom: 10%;
   transform: translate(-50%);
 }
 
-body{
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-  url('./assets/bg-photo.png');
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("./assets/bg-photo.png");
 }
 
-.row_menu{
+.row_menu {
   position: absolute;
   border: 2px solid black;
   background: beige;
   left: 2.2vw;
   top: 0;
-  width: 3Vw;
-  height: 10vh;
+  padding: 10%;
   justify-items: center;
   font-size: small;
-  align-content: center;
 }
 
-.expense_row_action_item:hover{
+.expense_row_action_item:hover {
   font-weight: 600;
 }
 
-.bottom_dash{
+.bottom_dash {
   border-bottom: 2px solid black;
   margin-bottom: 5%;
+}
+
+.general_fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: xx-large;
+}
+
+.general_fallback .material-icons {
+  font-size: 10vh;
+}
+
+.filter-expense_list {
+  height: 10%;
+  z-index: 1;
+  justify-items: start;
+  border: 1px solid black;
+  background: rgb(46, 78, 223);
+  width: 20%;
+  padding: 1%;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.open-sidemenu-btn {
+  position: fixed;
+  left: 0;
+  top: 50%;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translate(-50%, -150%); /* Start from the bottom */
+  }
+  100% {
+    transform: translate(-50%, -50%); /* End at the original position */
+  }
+}
+
+@keyframes menu-pop {
+  0% {
+    transform: translate(-50%, 0%); /* Start from the bottom */
+  }
+  100% {
+    transform: translate(-50%, -50%); /* End at the original position */
+  }
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  width: 15%;
+  height: fit-content;
+  background: rgb(245, 245, 245);
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  justify-content: center;
+  animation: menu-pop 1s ease-out forwards;
+}
+
+.side-menu-item {
+  color: #5393fa;
+  border: 1px solid black;
+  padding: 10%;
+  font-weight: 1000;
+  text-decoration: none;
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.side-menu-item:hover {
+  background: rgb(228, 216, 216);
 }
