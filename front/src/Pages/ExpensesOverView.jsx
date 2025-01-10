@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import AddExpense from "./AddExpense";
-import ExpensesContainer from "./ExpensesContainer";
-import { SideMenu } from "../SideMenu";
+import AddExpense from "../ui/expenses/AddExpense";
+import ExpensesContainer from "../ui/expenses/ExpensesContainer";
+import { SideMenu } from "./SideMenu";
 
-const OverView = () => {
+const ExpensesOverView = () => {
   const [add_expense_popup_visibilty, set_add_expense_popup_visibilty] =
     useState(false);
   const [update_expenses, set_update_expenses] = useState(false);
 
   return (
     <>
-      <SideMenu />
       <ExpensesContainer
         update_expenses={update_expenses}
         set_update_expenses={set_update_expenses}
@@ -34,4 +33,4 @@ const OverView = () => {
   );
 };
 
-export default OverView;
+export default ExpensesOverView;
