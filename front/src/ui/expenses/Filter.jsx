@@ -29,7 +29,7 @@ const Filter = ({ data, set_data, base_data }) => {
   return (
     <div className="filter-expense_list">
       Filter by : <br /> <br />
-      <div className="flex-container-row">
+      <div className="flex-container-col">
         Expense type :{" "}
         <select
           onChange={(e) => {
@@ -78,6 +78,7 @@ const Filter = ({ data, set_data, base_data }) => {
         </div>
       </div>
       <button
+        className="reset-filter-btn"
         onClick={() => {
           set_data(base_data);
           let temp = { ...date_range_state[0] };

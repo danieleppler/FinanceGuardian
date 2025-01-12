@@ -37,21 +37,27 @@ const ExpensesContainer = ({ update_expenses, set_update_expenses }) => {
   return (
     <>
       {base_expenses && (
-        <Filter
-          base_data={base_expenses}
-          data={expenses}
-          set_data={set_expenses}
-        />
+        <div className="expense-o-b">
+          <Filter
+            base_data={base_expenses}
+            data={expenses}
+            set_data={set_expenses}
+          />
+        </div>
       )}
-      <ExpensesList
-        set_update_expenses={set_update_expenses}
-        update_expenses={update_expenses}
-        expenses={expenses}
-      />
-      <div className="e_row_text expense_row subtotal_amount ">
-        <div style={{ float: "left" }}>SubTotal :</div>
-        <div className="e_amount" style={{ float: "right" }}>
-          {sub_total}
+      <div className="expense-o-a">
+        <ExpensesList
+          set_update_expenses={set_update_expenses}
+          update_expenses={update_expenses}
+          expenses={expenses}
+        />
+      </div>
+      <div className="expense-o-c">
+        <div className="e_row_text expense_row subtotal_amount ">
+          <div style={{ float: "left" }}>SubTotal :</div>
+          <div className="e_amount" style={{ float: "right" }}>
+            {sub_total}
+          </div>
         </div>
       </div>
     </>

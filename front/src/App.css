@@ -111,6 +111,7 @@ form {
 
 .flex-container-row {
   column-gap: 5px;
+  row-gap: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -127,18 +128,37 @@ form {
   position: relative;
 }
 
+.expense_overview_container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "expense-o-a expense-o-b"
+    "expense-o-a expense-o-b"
+    "expense-o-a expense-o-c";
+}
+
+.expense-o-a {
+  grid-area: expense-o-a;
+  border: 1px solid black;
+}
+
+.expense-o-b {
+  grid-area: expense-o-b;
+  border: 1px solid black;
+}
+
+.expense-o-c {
+  grid-area: expense-o-c;
+  border: 1px solid black;
+}
+
 .expense_list {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: fit-content;
   border: 5px solid black;
-  height: 60%;
-  width: 35vw;
   overflow: scroll;
   align-items: center;
   background: rgb(32, 28, 28);
+  height: 100%;
 }
 
 .expense_type_icon_bg {
@@ -150,7 +170,7 @@ form {
   content: "₪";
   font-weight: 500;
   font-size: large;
-  color: white;
+  color: black;
   margin-left: 2px;
 }
 
@@ -183,11 +203,6 @@ form {
 }
 
 .subtotal_amount {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  bottom: 10%;
-  transform: translate(-50%);
 }
 
 body {
@@ -233,21 +248,25 @@ body {
 }
 
 .filter-expense_list {
-  height: 10%;
-  z-index: 1;
-  justify-items: start;
   border: 1px solid black;
   background: rgb(46, 78, 223);
-  width: 20%;
-  padding: 1%;
-  position: absolute;
-  top: 2%;
-  left: 50%;
-  transform: translate(-50%);
+  position: relative;
   color: white;
+  height: 100%;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.reset-filter-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.sidemenu-btn-inital {
+  position: fixed;
+  left: 0;
+  top: 50%;
 }
 
 .open-sidemenu-btn {
@@ -284,10 +303,10 @@ body {
 
 @keyframes popUp {
   0% {
-    transform: translate(-50%, -150%); /* Start from the bottom */
+    transform: translate(-50%, -150%);
   }
   100% {
-    transform: translate(-50%, -50%); /* End at the original position */
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -358,93 +377,212 @@ body {
   background: rgb(228, 216, 216);
 }
 
-.budget-overview-gtid-container {
-  position: relative;
-  justify-content: center;
-  top: 20vh;
-  column-gap: 30%;
-  display: grid;
-  grid-template-columns: 20% 20%;
-  grid-template-rows: 1fr 5fr;
-  row-gap: 40%;
-  grid-template-areas:
-    "budget-a budget-b"
-    "budget-c budget-c";
-  width: 100vw;
-  height: 75vh;
-  transform: translate(-5%);
-}
-
-.budget-overview-grid-item-a {
-  grid-area: budget-a;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  row-gap: 10vh;
-  align-items: center;
-}
-
-.budget-overview-grid-item-b {
-  grid-area: budget-b;
-  justify-items: center;
-}
-
-.budget-overview-grid-item-c {
-  grid-area: budget-c;
+.genearl-card-container {
   position: absolute;
+  padding: 5%;
+  border: 1px solid black;
+  border-radius: 25px;
+  background: #fcefef;
+  height: 70%;
+  width: 60%;
+  left: 13%;
+  top: 5%;
 }
 
-.budget-line {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  border: 1px solid black;
-  background: wheat;
-  width: 80vw;
-  justify-self: center;
-  justify-content: space-around;
+.budget-overview-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-areas:
+    "budget-o-a budget-o-a budget-o-b budget-o-b"
+    "budget-o-e budget-o-e budget-o-e budget-o-d"
+    "budget-o-c budget-o-c budget-o-c budget-o-d";
 }
 
-.budget-component {
+.budget-o-a {
+  grid-area: budget-o-a;
   border: 1px solid black;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "add-income-a add-income-a"
+    "add-income-b add-income-c";
+}
+
+.add-income-a {
+  grid-area: add-income-a;
+  border: 1px solid black;
+  align-content: center;
   text-align: center;
-  font-weight: 600;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 
-.budget-component-expense {
-  background: rgb(177, 42, 42);
-  flex: 1;
-  cursor: default;
+.add-income-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
-.budget-component-total {
-  background: rgb(140, 227, 238);
-  flex: 2;
+.add-income-description {
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+
+.add-income-b {
+  position: relative;
+  grid-area: add-income-b;
+  border: 1px solid black;
+}
+
+.current-incomes-title {
+  justify-self: center;
+  margin-bottom: 2%;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.incomes-table {
+  position: absolute;
+  height: 65%;
+  width: 100%;
+  overflow: scroll;
+  justify-items: center;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.incomes-table table {
+  background: #c5f5e9;
+  width: 100%;
+  height: 70%;
+}
+
+.delete-income-btn {
+  color: red;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.delete-income-btn:hover {
+  transform: scale(1.2);
+}
+
+.add-income-btn-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 5%;
+}
+
+.add-income-btn {
+  width: 75%;
+}
+
+.add-income-c {
+  grid-area: add-income-c;
+  border: 1px solid black;
+  height: 20vh;
+}
+
+.budget-o-b {
+  grid-area: budget-o-b;
+  border: 1px solid black;
+}
+
+.budget-o-c {
+  grid-area: budget-o-c;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.budget-o-c table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: #d9ecf7;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 80%;
+  font-weight: 1000;
+}
+
+.budget-o-c .expense {
+  background: rgb(236, 54, 54);
+  cursor: pointer;
+  position: relative;
+}
+
+.budget-o-c .income {
+  background: rgb(3, 164, 245);
+}
+
+.budget-o-c .free-budget_minus {
+  background: rgba(255, 31, 31, 0.623);
+}
+
+.budget-o-c .free-budget_plus {
+  background: rgba(0, 255, 115, 0.623);
 }
 
 .catagory-expenses-details-wnd {
   position: absolute;
-  bottom: 150%;
-  border: 1px solid black;
-  background: rgb(117, 112, 112);
-  width: 13vw;
-  height: 20vh;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  left: 50%;
+  bottom: 50%;
+  background: #dddddd;
+  padding: 2px;
+  border: 4px solid black;
 }
 
-.budget-window {
-  border: 1px SOLID BLACK;
-  background: white;
+.budget-o-d {
+  grid-area: budget-o-d;
+  border: 1px solid black;
   height: 100%;
-  width: 100%;
+}
+.montly-balance-title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-weight: 900;
+  position: relative;
+  top: 5%;
+}
+.budget-o-e {
+  grid-area: budget-o-e;
+  border: 1px solid black;
+  background-image: url("./assets/budget-o-img.png");
+  background-size: contain;
+}
+
+.confirmation_popup {
+  position: fixed;
+  background: #cabdbd;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: fit-content;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 2%;
+  border: 5px solid black;
+  animation: popUp 1s ease-out forwards;
+}
+
+.confirmation_popup_title {
+  font-weight: bold;
+  font-size: x-large;
+}
+.confirmation_popup_btns {
+  margin-top: 5%;
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 5%;
+  flex-direction: row;
+}
+
+button {
+  cursor: pointer;
 }

@@ -10,4 +10,9 @@ const insert_income = async (income) => {
   return;
 };
 
-module.exports = { read_by_user_id, insert_income };
+const delete_income = async (id) => {
+  await income_repo.delete_income(id);
+  return;
+};
+
+module.exports = { delete_income, read_by_user_id, insert_income };

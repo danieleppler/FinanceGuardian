@@ -20,6 +20,8 @@ const SELECT_INCOME_BY_USER_ID_QUERY =
 const INSERT_INCOME_QUERY =
   'INSERT INTO "Incomes" (id,type,title,date,amount,fixed,user_id) VALUES ($1,$2,$3,$4,$5,$6,$7)';
 
+const DELETE_INCOME_QUERY = 'DELETE FROM "Incomes" WHERE id = $1';
+
 module.exports = {
   INSERT_USER_QUERY,
   SELECT_USER_BY_USERNAME_QUERY,
@@ -30,4 +32,5 @@ module.exports = {
   UPDATE_EXPENSE_QUERY,
   SELECT_INCOME_BY_USER_ID_QUERY,
   INSERT_INCOME_QUERY,
+  DELETE_INCOME_QUERY,
 };

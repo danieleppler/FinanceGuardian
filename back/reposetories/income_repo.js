@@ -4,6 +4,7 @@ const utils = require("../utils");
 const {
   SELECT_INCOME_BY_USER_ID_QUERY,
   INSERT_INCOME_QUERY,
+  DELETE_INCOME_QUERY,
 } = require("../Queries");
 
 const read_by_user = async (id) => {
@@ -24,4 +25,8 @@ const add_income = async (income) => {
   ]);
 };
 
-module.exports = { read_by_user, add_income, add_income };
+const delete_income = async (id) => {
+  return await db_client.query(DELETE_INCOME_QUERY, [id]);
+};
+
+module.exports = { delete_income, read_by_user, add_income, add_income };

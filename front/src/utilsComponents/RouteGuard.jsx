@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router";
 import { useAuth } from "../Contexts/AuthContext";
 import axios from "axios";
 import { SideMenu } from "../Pages/SideMenu";
+
 const RouteGuard = () => {
   const navigate = useNavigate();
   const { user } = useAuth();

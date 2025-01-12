@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd back && npm run dev",
     "client": "cd front && npm run dev ",
-    "git": "git add --all && git commit -m read -p \"initial version of budget overview\" && git push origin master"
+    "git": "git add --all && git commit -m read -p \"Started migrating app display to grid\" && git push origin master"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,8 @@
     "concurrently": "^9.1.2"
   },
   "dependencies": {
+    "chart.js": "^4.4.7",
+    "react-chartjs-2": "^5.3.0",
     "react-date-range": "^2.0.1"
   }
 }

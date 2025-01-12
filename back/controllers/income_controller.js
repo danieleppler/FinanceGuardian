@@ -23,4 +23,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    await income_svc.delete_income(req.params.id);
+    res.status(200).send({ msg: "income deleted succesfully!" });
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).send();
+  }
+});
+
 module.exports = router;

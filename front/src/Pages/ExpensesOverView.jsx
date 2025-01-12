@@ -9,7 +9,7 @@ const ExpensesOverView = () => {
   const [update_expenses, set_update_expenses] = useState(false);
 
   return (
-    <>
+    <div className="genearl-card-container expense_overview_container">
       <ExpensesContainer
         update_expenses={update_expenses}
         set_update_expenses={set_update_expenses}
@@ -29,7 +29,7 @@ const ExpensesOverView = () => {
           set_add_expense_popup_visibilty={set_add_expense_popup_visibilty}
         />
       )}
-    </>
+    </div>
   );
 };
 
