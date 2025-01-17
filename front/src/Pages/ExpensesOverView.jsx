@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddExpense from "../ui/expenses/AddExpense";
 import ExpensesContainer from "../ui/expenses/ExpensesContainer";
-import { SideMenu } from "./SideMenu";
 
 const ExpensesOverView = () => {
   const [add_expense_popup_visibilty, set_add_expense_popup_visibilty] =

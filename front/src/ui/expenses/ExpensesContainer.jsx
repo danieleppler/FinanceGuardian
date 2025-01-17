@@ -52,12 +52,10 @@ const ExpensesContainer = ({ update_expenses, set_update_expenses }) => {
           expenses={expenses}
         />
       </div>
-      <div className="expense-o-c">
-        <div className="e_row_text expense_row subtotal_amount ">
-          <div style={{ float: "left" }}>SubTotal :</div>
-          <div className="e_amount" style={{ float: "right" }}>
-            {sub_total}
-          </div>
+      <div className="expense-o-c ">
+        <div className="e_row_text subtotal_amount flex-container-col">
+          <div>SubTotal :</div>
+          <div className="e_amount">{sub_total}</div>
         </div>
       </div>
     </>

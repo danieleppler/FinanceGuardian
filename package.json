@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd back && npm run dev",
     "client": "cd front && npm run dev ",
-    "git": "git add --all && git commit -m read -p \"Started migrating app display to grid\" && git push origin master"
+    "git": "git add --all && git commit -m read -p \"Initial app version is ready\" && git push origin master"
   },
   "keywords": [],
   "author": "",

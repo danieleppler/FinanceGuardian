@@ -51,22 +51,31 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="genearl-card-container basic-form">
       <form onSubmit={handle_submit}>
         UserName <input type="text" name="username"></input>
         {form_errors.username && (
           <p className="form_error">{form_errors.username}</p>
         )}
-        Password <input type="text" name="password"></input>
+        Password <input type="password" name="password"></input>
         {form_errors.password && (
           <p className="form_error">{form_errors.password}</p>
         )}
-        <button type="submit">Login</button>
+        <button type="submit" className="general-btn">
+          Login
+        </button>
+        <p>
+          Dont have an account ? <a href="/register">register</a> <br />
+          Here to be impressed from the website ? Please use this user{" "}
+          <span
+            title="username : test_user  password: Tt123456"
+            className="material-symbols-outlined predefined-user-icons"
+          >
+            person
+          </span>
+        </p>
       </form>
-      <p>
-        Dont have an account ? <a href="/register">register</a>
-      </p>
-    </>
+    </div>
   );
 };
 

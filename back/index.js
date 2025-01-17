@@ -19,6 +19,9 @@ app.use("/expenses", expense_controller);
 const income_controller = require("./controllers/income_controller");
 app.use("/income", income_controller);
 
+const user_controller = require("./controllers/user_controller");
+app.use("/user", user_controller);
+
 try {
   app.listen(port, () => {
     console.log(`app listening on port ${port}`);

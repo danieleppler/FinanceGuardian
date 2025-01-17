@@ -4,6 +4,11 @@ const INSERT_USER_QUERY =
 const SELECT_ALL_USERS_QUERY = 'SELECT * FROM "Users"';
 const SELECT_USER_BY_USERNAME_QUERY =
   'SELECT * FROM "Users" WHERE user_name = $1 FETCH FIRST 1 ROWS ONLY';
+const UPDATE_USER_QUERY =
+  'UPDATE "Users" SET first_name = $2 , last_name =$3 , age = $4 WHERE id = $1';
+
+const UPDATE_USER_W_QUERY =
+  'UPDATE "Users" SET first_name = $2 , last_name =$3 , age = $4 , password = $5  WHERE id = $1';
 
 //expenses
 const INSERT_EXPENSE_QUERY =
@@ -33,4 +38,6 @@ module.exports = {
   SELECT_INCOME_BY_USER_ID_QUERY,
   INSERT_INCOME_QUERY,
   DELETE_INCOME_QUERY,
+  UPDATE_USER_QUERY,
+  UPDATE_USER_W_QUERY,
 };

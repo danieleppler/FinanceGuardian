@@ -27,66 +27,66 @@ const Filter = ({ data, set_data, base_data }) => {
   }, [date_range_state]);
 
   return (
-    <div className="filter-expense_list">
-      Filter by : <br /> <br />
-      <div className="flex-container-col">
-        Expense type :{" "}
-        <select
-          onChange={(e) => {
-            const temp = data.filter((x) => {
-              return x.type === e.target.value;
-            });
-            set_data(temp);
-          }}
-        >
-          <option>----</option>
-          {base_data
-            .filter(
-              (obj, index, self) =>
-                index === self.findIndex((t) => t.type === obj.type)
-            )
-            .map((x) => {
-              return <option>{x.type}</option>;
-            })}
-        </select>
-        <button
-          onClick={() => {
-            set_is_date_range_visible(true);
-          }}
-        >
-          Select dates
-        </button>{" "}
-        {is_date_range_visible && (
-          <>
-            <DateRangePicker
-              set_visibilty={set_is_date_range_visible}
-              setState={set_date_range_state}
-              state={date_range_state}
-            />
-          </>
-        )}
-        <div>
-          {date_range_state[0].active_select && (
-            <span>
-              {" "}
-              From : {date_range_state[0].startDate.toLocaleDateString()}
-            </span>
-          )}
-          {date_range_state[0].active_select && (
-            <span> To: {date_range_state[0].endDate.toLocaleDateString()}</span>
-          )}
-        </div>
-      </div>
-      <button
-        className="reset-filter-btn"
-        onClick={() => {
-          set_data(base_data);
-          let temp = { ...date_range_state[0] };
-          set_date_range_state([{ ...temp, active_select: false }]);
+    <div className="filter-expense_list flex-container-col">
+      {" "}
+      <div>Filter by :</div>
+      <select
+        onChange={(e) => {
+          const temp = data.filter((x) => {
+            return x.type === e.target.value;
+          });
+          set_data(temp);
         }}
       >
-        Reset Filter
-      </button>
+        <option>Expense type</option>
+        {base_data
+          .filter(
+            (obj, index, self) =>
+              index === self.findIndex((t) => t.type === obj.type)
+          )
+          .map((x) => {
+            return <option>{x.type}</option>;
+          })}
+      </select>
+      <button
+        onClick={() => {
+          set_is_date_range_visible(true);
+        }}
+      >
+        Select dates
+      </button>{" "}
+      {is_date_range_visible && (
+        <>
+          <DateRangePicker
+            set_visibilty={set_is_date_range_visible}
+            setState={set_date_range_state}
+            state={date_range_state}
+          />
+        </>
+      )}
+      <div>
+        {date_range_state[0].active_select && (
+          <span>
+            {" "}
+            From : {date_range_state[0].startDate.toLocaleDateString()}
+          </span>
+        )}
+        {date_range_state[0].active_select && (
+          <div> To: {date_range_state[0].endDate.toLocaleDateString()}</div>
+        )}
+      </div>
+      <div className="reset-filter-btn">
+        {" "}
+        <button
+          onClick={() => {
+            set_data(base_data);
+            let temp = { ...date_range_state[0] };
+            set_date_range_state([{ ...temp, active_select: false }]);
+          }}
+        >
+          Reset Filter
+        </button>
+      </div>
     </div>
   );
 };

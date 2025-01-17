@@ -7,6 +7,7 @@ import Register from "../Pages/Register";
 import { GeneralFallBack } from "../Fallbacks/GeneralFallBack";
 import ExpensesOverView from "../Pages/ExpensesOverView";
 import { BudgetOverView } from "../Pages/BudgetOverView";
+import { MyProfile } from "../Pages/MyProfile";
 
 const App_Routes = () => {
   return (
@@ -17,6 +18,7 @@ const App_Routes = () => {
         <Route element={<RouteGuard />}>
           <Route path="/expensesoverview" element={<ExpensesOverView />} />
           <Route path="/budgetoverview" element={<BudgetOverView />} />
+          <Route path="/myprofile" element={<MyProfile />} />
         </Route>
         <Route path="/error" element={<GeneralFallBack />} />
       </Routes>

@@ -37,6 +37,7 @@ export const SideMenu = () => {
             </Link>
             <Link
               onClick={() => set_is_menu_visible(false)}
+              to="/myprofile"
               className="side-menu-item"
             >
               My Profile
