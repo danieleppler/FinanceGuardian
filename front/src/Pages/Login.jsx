@@ -68,7 +68,7 @@ const Login = () => {
           Dont have an account ? <a href="/register">register</a> <br />
           Here to be impressed from the website ? Please use this user{" "}
           <span
-            title="username : test_user  password: Tt123456"
+            title="username : TestUser  password: Tt123456"
             className="material-symbols-outlined predefined-user-icons"
           >
             person
